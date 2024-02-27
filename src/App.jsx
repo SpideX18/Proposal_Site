@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/message/:name/:id" element={<LoveNote />} />
+        <Route path="/:name/:id" element={<LoveNote />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>
