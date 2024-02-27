@@ -1,0 +1,167 @@
+
+body {
+  width: 700px;
+  height: 500px;
+  background-image: url('https://c0.wallpaperflare.com/preview/693/553/283/lovers-moon-love-couple.jpg'); /* Path to your default background image */
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* .typewriter {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe0f0;
+} */
+
+
+/* LoveNote.css */
+/* LoveNote.css */
+.typewriter {
+  font-size: 50px;
+  color: white;
+  margin: 170px 100px 30px 100px;
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  white-space: pre-wrap; /* Maintain text formatting and wrap text */
+  overflow: hidden; /* Hide overflow to maintain the typing effect */
+  width: max-content; /* Ensure the div size matches the content size */
+  /* margin: auto; Center the div */
+}
+
+/* Remove the cursor animation and border styles */
+
+
+@media (max-width: 768px) {
+  .element {
+    background-image: url('path/to/your/mobile-image.jpg');
+  }
+}
+
+/* LoveNote.css */
+
+.container {
+  /* margin: 180px 0px; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  /* height: 100vh; */
+}
+
+/* LoveNote.css */
+.romantic-box {
+  width: 500px;
+  height: 200px;
+  margin: 200px 400px;
+  padding: 20px;
+  font-weight: bold;
+  /* font-size: 20px; */
+  color: rgb(243, 8, 106);
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  background-color: #ffffff; /* Set background to white */
+  border: 2px solid #ff1493; /* You can adjust the border color as desired */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.romantic-box p span{
+  font-size: 40px;
+}
+.romantic-box p{
+  font-size: 30px;
+}
+
+.romantic-button {
+  position: absolute;
+  left: 600px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: white;
+  background-color: #ff1493;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.romantic-button:hover {
+  background-color: #ff69b4;
+}
+
+/* .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+} */
+
+/* .response-buttons { */
+  /* display: flex;
+  gap: 20px;
+  margin-top: 20px;
+} */
+
+.romantic-button.yes {
+  margin: 10px;
+  position: absolute;
+  left: 550px;
+  width: 100px;
+  background-color: #4CAF50; /* Green */
+}
+
+.romantic-button.no {
+  margin: 10px;
+  position: absolute;
+  left: 700px;
+  width: 100px;
+  background-color: #f44336; /* Red */
+}
+/* .typewriter { */
+  /* font-family: 'Great Vibes', cursive; */
+  /* text-align: center; */
+  /* white-space: pre-wrap; */
+  /* margin: 20px 0; */
+/* } */
+
+.romantic-box .no{
+  color: white;
+  background-color: red;
+  margin: 10px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  /* color: white; */
+  /* background-color: #ff1493; */
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* background-color: #f44336; */
+}
+
+.romantic-box .yes{
+  color: white;
+  background-color: green;
+  margin: 10px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  /* color: white; */
+  /* background-color: #ff1493; */
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* background-color: #f44336; */
+}
