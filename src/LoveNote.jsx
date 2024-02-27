@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import './index.css';
 
 const LoveNote = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Function to parse the URL path
+  const parsePath = (path) => {
+    const segments = path.split('/').filter(Boolean); // Assumes the path starts with /user/
+    const name = segments[1]; // Assuming /user/name/id structure
+    const id = segments[2];
+    return { name, id };
+  };
+
+  // Extract name and id from the current path
+  const { name, id } = parsePath(location.pathname);
+
   const fullText = "Hey beautiful!!!\nIt's been a long time I noticed you, and now I can't wait any longer.\nI had a very hard crush when I saw you for the first time,\nand I would like to ask you something.";
   const [typedText, setTypedText] = useState('');
   const [index, setIndex] = useState(0);
   const [showButton, setShowButton] = useState(false);
   const [showQuestionBox, setShowQuestionBox] = useState(false);
-  const { name, id } = useParams();
+  // const { name, id } = useParams();
   const [showResponse, setShowResponse] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [noButtonStyle, setNoButtonStyle] = useState({});
   const [hoverCount, setHoverCount] = useState(0);
   const [showRejectMessage, setShowRejectMessage] = useState(false);
@@ -33,7 +48,6 @@ const LoveNote = () => {
       return () => clearTimeout(timeout);
     }
   }, [index, fullText.length]);
-
   useEffect(() => {
     if (showResponse) {
       setTimeout(() => {
