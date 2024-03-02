@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './index.css';
 
 const LoveNote = () => {
@@ -7,25 +7,21 @@ const LoveNote = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Function to parse the URL path
-  const parsePath = (path) => {
-    const segments = path.split('/').filter(Boolean); // Assumes the path starts with /user/
-    const name = segments[1]; // Assuming /user/name/id structure
-    const id = segments[2];
-    return { name, id };
-  };
+//
+const getQueryParam = (param) => {
+  const searchParams = new URLSearchParams(location.search);
+  return searchParams.get(param);
+};
+const name = getQueryParam('name');
+  const id = getQueryParam('id');
 
-  // Extract name and id from the current path
-  const { name, id } = parsePath(location.pathname);
-
+  
   const fullText = "Hey beautiful!!!\nIt's been a long time I noticed you, and now I can't wait any longer.\nI had a very hard crush when I saw you for the first time,\nand I would like to ask you something.";
   const [typedText, setTypedText] = useState('');
   const [index, setIndex] = useState(0);
   const [showButton, setShowButton] = useState(false);
   const [showQuestionBox, setShowQuestionBox] = useState(false);
-  // const { name, id } = useParams();
   const [showResponse, setShowResponse] = useState(false);
-  // const navigate = useNavigate();
   const [noButtonStyle, setNoButtonStyle] = useState({});
   const [hoverCount, setHoverCount] = useState(0);
   const [showRejectMessage, setShowRejectMessage] = useState(false);
@@ -39,12 +35,12 @@ const LoveNote = () => {
       const timeoutId = setTimeout(() => {
         setTypedText(currentText => currentText + fullText.charAt(index));
         setIndex(currentIndex => currentIndex + 1);
-      }, 25); // Typing speed
+      }, 25);
       return () => clearTimeout(timeoutId);
     } else {
       const timeout = setTimeout(() => {
         setShowButton(true);
-      }, 1000); // Show the button 5 seconds after typing ends
+      }, 1000); 
       return () => clearTimeout(timeout);
     }
   }, [index, fullText.length]);
@@ -52,7 +48,7 @@ const LoveNote = () => {
     if (showResponse) {
       setTimeout(() => {
         const instagramUrl = `https://instagram.com/${id}`;
-        window.open(instagramUrl, '_blank'); // Open in a new tab
+        window.open(instagramUrl, '_blank'); 
       }, 2000); // 10 seconds delay
       return () => clearTimeout(timeoutId);
     }
@@ -98,17 +94,14 @@ const LoveNote = () => {
     moveNoButton();
   };
 
-// close site
+
 const handleExit = () => {
-  document.body.innerHTML = ''; // This clears the entire content of the body, leaving a blank page
-    // Optionally, you can also change the background or add a farewell message before clearing everything
+  document.body.innerHTML = '';
     const messageDiv = document.createElement('div');
   messageDiv.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 30px; font-width:bold; text-align: center;';
 
-  // Set the message text
   messageDiv.innerText = "Sorry girl, you missed the most wonderful man ever in your life.";
 
-  // Append the message div to the body
   document.body.appendChild(messageDiv);
 };
 
@@ -117,11 +110,10 @@ const handleNotSure = () => {
   setShowNotSureResponse(true);
   setShowRejectMessage(false);
   setShowQuestionBox(false);
-  // setShowInitialMessage(false);
-
+  
   setTimeout(() => {
     const instagramUrl = `https://instagram.com/${id}`;
-    window.open(instagramUrl); // Open in a new tab
+    window.open(instagramUrl); 
   }, 2000);
 };
 
@@ -136,7 +128,7 @@ const handleNotSure = () => {
           <button type="button" onClick={handleNotSure} className='yes'>I am not sure</button>
         </div>
       )}
-{/* mojoikoik */}
+
 {showNotSureResponse && (
         <div className="romantic-box">
           <p>{message}</p>
